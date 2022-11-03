@@ -1,0 +1,20 @@
+{% extends 'ejemplo/base.html' %}
+{% block titulo %}Datos Familiares{% endblock %}
+{% block contenido %}
+
+<P></P>
+  
+<form action="/mi-familia/Datos" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Grabar">
+</form>
+
+<h2 style="color:green">{{msg_exito}}</h2>
+
+<center>
+<TABLE width="200"><TR><TD align="center" class="navegacion"><a href="{% url 'familiar-datos' %}">Buscar</a></TD></TR></TABLE>
+</center>
+  
+
+{% endblock %}

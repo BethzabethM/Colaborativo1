@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{% endblock %}</title>
+<style type="text/css">
+    <!--
+        .contenido {font-size:9pt; font-family:arial;}
+        .titulo_page {font-size:11pt; font-family:verdana, tahoma, arial; font-weight:bold; color:navy;}
+        .titulo_seccion {font-size:10pt; font-family:verdana, tahoma, arial; font-weight:bold; color:navy;}
+        .navegacion {border:1px solid black; border-radius:10px 10px 10px 10px; background-color:#CCCCCC;}
+
+    -->
+</style>
+</head>
+
+<body>
+<p style="border:1px solid black; background-color:lightskyblue; font-family:arial; font-size:18pt;">{{conf_pages.nombre_blog}} >> {{conf_pages.titulo_principal}} >> {{conf_pages.subtitulo_principal}}</p>
+<hr>
+<SPAN class="titulo_page">{% block titulo %}{% endblock %}</SPAN>
+<P></P>
+<SPAN class="contenido">
+{% block contenido %}{% endblock %}
+</SPAN>
+</body>
+</html>

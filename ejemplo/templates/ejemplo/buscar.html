@@ -1,0 +1,36 @@
+{% extends 'ejemplo/base.html' %}
+{% block title %}Buscar Familiares por Nombre{% endblock %}
+{% block titulo%}Buscar Familiares por Nombre{% endblock %}
+{% block contenido %}
+
+
+  <form action="/mi-familia/buscar" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+
+  {% if lista_familiares != null %}
+    <P>&nbsp;</P>
+    <SPAN class="titulo_seccion">Listado de Familiares</SPAN>
+    <TABLE border=0 cellspacing="3" cellpadding="3" style="background-color:white; width:750px;">
+      <TR style="background-color:black; color:white;">
+        <TH>NOMBRE</TH><TH>DIRECCION</TH><TH>PASAPORTE</TH>
+      </TR>
+    {% for familiar in lista_familiares %}
+      <TR style="background-color:#CCCCCC;"">
+        <TD>{{familiar.nombre}}</TD> 
+        <TD>{{familiar.direccion}}</TD>
+        <TD>{{familiar.numero_pasaporte}}</TD>
+      </TR>
+    {% endfor %}
+
+    </TABLE>
+
+  {% endif %}
+  
+<center>
+<TABLE width="200"><TR><TD align="center" class="navegacion"><a href="{% url 'familiar-alta' %}">Alta</a></TD></TR></TABLE>
+</center>
+    
+{% endblock %}
